@@ -52,7 +52,6 @@ button {
     background-color: #1E95EA;
     color: white;
     height: 40px;
-    width: 100px;
     font-size: 14px;
 }
 
@@ -86,4 +85,8 @@ textarea {
 .activeTab {
     color: #16C0B0;
     text-decoration: underline;
+}
+
+.outOffStock {
+    text-decoration: line-through;
 }
