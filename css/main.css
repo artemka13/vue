@@ -90,3 +90,9 @@ textarea {
 .outOffStock {
     text-decoration: line-through;
 }
+
+.picked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
