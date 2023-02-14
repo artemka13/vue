@@ -29,9 +29,9 @@ Vue.component('zebra', {
             >
             </div>
 
-            <ul>
-                <li v-for="size in sizes">{{size}}</li>
-            </ul>
+            <select>
+                <option v-for="size in sizes">{{size}}</option>
+            </select>
 
             <a :href="link">More products like this</a>
 
@@ -88,7 +88,7 @@ Vue.component('zebra', {
                     variantColor: 'blue',
                     variantImage: "./assets/vmSocks-blue-onWhite.jpg",
                     variantQuantity: 0
-                }
+                },
             ],
             sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
 
@@ -278,13 +278,53 @@ Vue.component('product-tabs', {
             <product-details/>
         </div>
         
+        <div v-show="selectedTab === 'New Product'">
+           <form>
+                   <div>
+                          <p>
+                            <label for="name">Id:</label>
+                            <input id="name" v-model="name" placeholder="Введите id продукта">
+                          </p> 
+                          
+                           <p>
+                             <label for="color">Color:</label>
+                             <select id="color">
+                             <option>red</option>
+                             <option>white</option>
+                             <option>gray</option>
+                             <option>pink</option>
+                             <option>black</option>
+                               </select>
+                           </p> 
+                              
+                           <p>
+                           <label for="picture">Add a picture:</label>
+                           <input type="file">
+                           </p>  
+                             
+                           <p>
+                            <label for="inStock">В наличии?</label>
+                            <input id="inStock" v-model="name" placeholder="Введите 1 если товар в наличии, 0 если нету в наличии">
+                          </p> 
+                          
+                           <p>
+                             <input @click="subb" type="submit" value="Submit"> 
+                           </p>      
+                   </div>         
+           </form>
+        </div>
+        
      </div>
 `,
     data() {
         return {
-            tabs: ['Reviews', 'Make a Review', 'Shipping' , 'Details'],
-            selectedTab: 'Reviews'  // устанавливается с помощью @click
+            tabs: ['Reviews', 'Make a Review', 'Shipping' , 'Details','New Product'],
+            selectedTab: 'Reviews',
+            newProduct: []
         }
+    },
+    methods: {
+
     },
     props: {
 
